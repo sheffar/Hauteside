@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.height{
+  height: calc(100vh - 64px);
+}
+
+.bgGrad{
+  background-image: linear-gradient(to bottom right, rgba(0,0,0,.25), rgba(0,0,0,.10) , rgba(0,0,0,0));
+}
+
+.grad{
+  background-image: linear-gradient(to right, rgb(206, 201, 201), white, white);
+}
+
+.linear{
+  background: linear-gradient(to right, rgb(201, 230, 240), rgb(190, 190, 248), rgb(250, 175, 250), white);
+}
+
+body, html{
+  font-size: 13px;
+  background-color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@layer components {
+   
+    .container{
+        @apply max-w-[1200px] min-w-[300px] mx-auto px-4
+    }
+    .container2{
+        @apply max-w-[950px] min-w-[300px] mx-auto px-4
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.noSelect{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+
+
+.loader {
+    width: 28px;
+    height: 28px;
+    border: 5px dotted white;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+  
+  .loader2 {
+    width: 23px;
+    height: 23px;
+    border: 3px dotted white;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+  
+  .loader3 {
+    width: 18px;
+    height: 18px;
+    border: 2px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  
+ 
+  .loader4 {
+    width: 60px;
+    height: 60px;
+    border: 3px dotted black;
+    border-style: solid solid dotted dotted;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+  .loader4::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px dotted black;
+    border-style: solid solid dotted;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: rotationBack 1s linear infinite;
+    transform-origin: center center;
+  }
+      
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  } 
+
+
