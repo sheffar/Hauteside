@@ -2,7 +2,7 @@
 import { Register } from "@/actions/auth/Register";
 import { Check, Eye, EyeOff } from "lucide-react";
 import { useState, useTransition } from "react";
-import { isEmailOrPasswordOrFullnameEmpty, isEmailValid, isPasswordValid } from "@/lib/helpers";
+import { passwordOrEmailOrFullnameIsEmpty, isEmailValid, isPasswordValid } from "@/lib/helpers";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
 import { framer } from "@/lib/framer";
@@ -24,7 +24,7 @@ export default function Root() {
   });
 
   const Signup = () => {
-    if (isEmailOrPasswordOrFullnameEmpty(fullname, email, password)) {
+    if (passwordOrEmailOrFullnameIsEmpty(fullname, email, password)) {
       setErrors({
         email: !email.trim() ? "Please input your email address" : "",
         password: !password.trim() ? "Please input your password" : "",
@@ -32,7 +32,7 @@ export default function Root() {
       });
       return;
     }
-    if (!isEmailValid(email)) {
+    if (isEmailValid(email)) {
       setErrors({
         email: "Please input a valid email address",
         password: "",

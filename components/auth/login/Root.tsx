@@ -1,12 +1,12 @@
 "use client";
 
+import { passwordOrEmailIsEmpty, isEmailValid } from "@/lib/helpers";
 import { Check, Eye, EyeOff } from "lucide-react";
 import { useState, useTransition } from "react";
 import { Login } from "@/actions/auth/Login";
-import { isEmailOrPasswordEmpty, isEmailValid } from "@/lib/helpers";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import { framer } from "@/lib/framer";
 import Link from "next/link";
 
@@ -18,43 +18,43 @@ export default function Root() {
   const [email, setEmail] = useState("");
   const [cookies] = useCookies(["url"]);
   const router = useRouter();
-  
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
 
-
   const Signin = () => {
-    if (isEmailOrPasswordEmpty(email, password)) {
-      setErrors({
+    if (passwordOrEmailIsEmpty(email, password)) {
+      return setErrors({
         email: !email.trim() ? "Please input your email address" : "",
         password: !password.trim() ? "Please input your password" : "",
       });
-      return;
     }
     if (!isEmailValid(email)) {
-      setErrors({
+      return setErrors({
         email: "Please input a valid email address",
         password: "",
       });
-      return;
     }
     startTransition(async () => {
+
       const res: any = await Login(email, password);
-      if (res?.error) {
-        setErrors(res?.error);
-        return;
-      }
-      const url = cookies.url;
-      if (url === undefined) {
-        return router.push(`/`);
-      }
-      return router.push(`/${url}`);
+
+      if (res?.error) return setErrors(res?.error)
+
+      if (cookies.url === undefined) return router.push(`/`);
+
+      return router.push(`/${cookies.url}`);
     });
   };
   return (
-    <motion.div variants={framer} initial='initial' animate="animate"  className="min-h-screen relative flex flex-col gap-4 pt-10 md:pt-0 items-center justify-center">
+    <motion.div
+      variants={framer}
+      initial="initial"
+      animate="animate"
+      className="min-h-screen relative flex flex-col gap-4 pt-10 md:pt-0 bgGrad items-center justify-center"
+    >
       <div className="text-center flex flex-col items-center">
         <Link
           href={"/"}
@@ -64,7 +64,7 @@ export default function Root() {
         </Link>
         <p className="font-semibold text-2xl sm:text-3xl mb-6">Welcome Back!</p>
       </div>
-      <div className="w-full sm:w-[360px] px-5 sm:px-7 sm:shadow-md h-fit sm:p-7 sm:border border-gray-300">
+      <div className="w-full sm:w-[360px] border-2 border-white rounded-3xl overflow-hidden px-5 sm:px-7 sm:shadow-xl shadow-black h-fit sm:p-7">
         <div className="">
           <p className="mb-1 ml-2 font-semibold">Email Address</p>
           <div
@@ -148,7 +148,10 @@ export default function Root() {
           <div className="h-[1px] bg-gray-300 flex-1"></div>
         </div>
         <div className="flex justify-center">
-          <Link href={'/auth/signup'} className="text-center w-fit cursor-pointer text-blue-600 hover:text-blue-700 hover:font-semibold underline">
+          <Link
+            href={"/auth/signup"}
+            className="text-center w-fit cursor-pointer text-blue-600 hover:text-blue-700 hover:font-semibold underline"
+          >
             Create an Account
           </Link>
         </div>

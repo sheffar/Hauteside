@@ -3,6 +3,8 @@ import { Logout } from "@/actions/auth/Logout";
 import { TSumAndQuantity } from "@/actions/cart/type";
 import { Divide as Hamburger } from "hamburger-react";
 
+const arr = [1,2,3,4,5]
+
 import {
   BellDotIcon,
   CirclePower,
@@ -40,11 +42,13 @@ export default function Icons({ sumQty,color, fullname, setOpen, isOpen }: Props
             : "scale-150 invisible opacity-0"
         }`}
       >
-        <div className="h-full w-full py-5 relative">
+        <div className="h-full flex flex-col gap-10 justify-between w-full py-5 relative">
+          <div className="">
+
           <div className="flex flex-col gap-5 text-black pl-4 justify-center uppercase font-bold ">
             {links.map((link, key) => (
               <Link
-                href={`${link}`}
+                href={`/${link}`}
                 key={key}
                 onClick={() => setOpen(false)}
                 className="duration-300 hover:text-[red]"
@@ -67,11 +71,12 @@ export default function Icons({ sumQty,color, fullname, setOpen, isOpen }: Props
               ))}
             </div>
           )}
-          <div className="">
+          </div>
+          <div className="flex items-center justify-center">
             {fullname ? (
               <button
                 onClick={logout}
-                className="flex h-16 rounded-md shadow-md px-2 text-sm duration-300 w-[90%] cursor-pointer absolute bottom-5 -translate-x-1/2 left-1/2 justify-center text-[red] border-2 border-[red] items-center gap-2 active:scale-90"
+                className="flex h-16 rounded-md shadow-md px-2 text-sm duration-300 w-[90%] cursor-pointer justify-center text-[red] border-2 border-[red] items-center gap-2 active:scale-90"
               >
                 <CirclePower size={16} />
                 <p className="text-15 uppercase font-semibold">Logout</p>
@@ -80,7 +85,7 @@ export default function Icons({ sumQty,color, fullname, setOpen, isOpen }: Props
               <Link
                 href={"/auth/login"}
                 onClick={() => setOpen(false)}
-                className="flex h-16 rounded-md shadow-md px-2 text-sm duration-300 w-[90%] cursor-pointer absolute bottom-5 -translate-x-1/2 left-1/2 justify-center text-[green] border-2 border-[green] items-center gap-2 active:scale-90"
+                className="flex h-16 rounded-md shadow-md px-2 text-sm duration-300 w-[90%] cursor-pointer justify-center text-[green] border-2 border-[green] items-center gap-2 active:scale-90"
               >
                 <User size={17} />
                 <p className="text-15 uppercase font-semibold">

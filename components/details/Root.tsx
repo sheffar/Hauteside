@@ -89,7 +89,7 @@ export default function Root({
           </div>
         </div>
       </div>
-      <div className="bg-white py-4 mt-10">
+      <div className="bg-white py-16 mt-10">
         <Template title="Similar Products" products={similarProducts} />
         <div className="h-10"></div>
         <Template title="Recently Viewed" products={recentlyViewedProducts} />

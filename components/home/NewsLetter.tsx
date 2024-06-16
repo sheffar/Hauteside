@@ -13,7 +13,7 @@ export default function NewsLetter() {
       className="flex bg-white py-14 sm:py-24 lg:py-28 xl:py-32 items-center justify-center"
     >
       <div className="container flex items-center justify-center">
-        <div className="w-full lg:w-[800px] md:p-5 flex flex-col justify-center bg-[#f7f344] gap-3 items-center text-center rounded-xl md:shadow-md h-72">
+        <div className="w-full lg:w-[800px] p-7 flex flex-col justify-center bg-[#f7f344] gap-3 items-center text-center rounded-xl md:shadow-md ">
           <div className="flex items-center gap-3 md:gap-7">
             <p className="text-xl md:text-2xl font-bold">STAY UPDATED</p>
             <Send size={40} className="hidden md:block" />
@@ -29,14 +29,14 @@ export default function NewsLetter() {
             Subscribe to our Newsletter!
           </p>
 
-          <div className="h-14 mt-5 w-full flex items-center gap-3">
+          <div className=" mt-5 w-full flex flex-col md:flex-row items-center gap-3 flex-col">
             <Smile size={40} className="hidden md:block" />
             <input
               type="text"
               placeholder="Your email"
-              className="h-full placeholder:text-black outline-none border-2 pl-3 rounded-md bg-transparent border-black flex-1"
+              className="h-14 placeholder:text-black outline-none border-2 pl-3 rounded-md bg-transparent border-black w-full"
             />
-            <button className="duration-300 px-5 h-14 rounded-md bg-black text-white font-semibold cursor-pointer active:scale-95">
+            <button className="duration-300 mt-3 px-5 h-14 rounded-md bg-black text-white font-semibold cursor-pointer active:scale-95">
               Subscribe
             </button>
           </div>

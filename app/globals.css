@@ -46,7 +46,9 @@ body, html{
 
 
 
-
+.bgGrad{
+  background-image: linear-gradient(to bottom left, rgb(138, 185, 243),  rgb(254, 191, 251),  rgb(137, 187, 248), rgb(248, 137, 220));
+}
 
 
 

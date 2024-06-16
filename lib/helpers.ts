@@ -36,7 +36,7 @@ export const isEmailValid = (email: string) => {
   return EmailValidator.validate(email);
 };
 
-export const isEmailOrPasswordEmpty = (email: string, password: string) => {
+export const passwordOrEmailIsEmpty = (email: string, password: string) => {
   if (!email.trim() || !password.trim()) {
     return true;
   } else {
@@ -44,7 +44,7 @@ export const isEmailOrPasswordEmpty = (email: string, password: string) => {
   }
 };
 
-export const isEmailOrPasswordOrFullnameEmpty = (
+export const passwordOrEmailOrFullnameIsEmpty = (
   email: string,
   password: string,
   fullname: string
@@ -57,16 +57,3 @@ export const isEmailOrPasswordOrFullnameEmpty = (
 };
 
 
-
-export const emailPasswordError = (email: string, password: string) => {
-  if (email.trim() === "" || password.trim() === "") {
-    return {
-      email: email.trim() === "" ? "Please fill in your email" : "",
-      password: password.trim() === "" ? "Please fill in your password" : "",
-    };
-  }
-  return {
-    email: "",
-    password: "",
-  };
-};

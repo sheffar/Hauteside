@@ -23,7 +23,7 @@ export default function Footer() {
       variants={framer}
       initial="initial"
       animate="animate"
-      className="bg-[#000000] text-white pt-20"
+      className="bg-[#000000] mt-20 text-white pt-20"
     >
       <div className="container border-white pb-10 flex text-center justify-center items-center flex-col">
         <Link href={"/"}>
