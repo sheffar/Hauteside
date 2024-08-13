@@ -3,14 +3,17 @@ import jwt from "jsonwebtoken";
 import * as EmailValidator from "email-validator";
 
 export const hashPassword = (password: string) => {
-  return bcrypt.hashSync("bacon", 8);
+  return bcrypt.hashSync(password, 8);
 };
 
 export const passwordMatch = (
   plainPassword: string,
   hashedPassword: string
 ) => {
-  return bcrypt.compare(plainPassword, hashedPassword);
+  if(bcrypt.compareSync(plainPassword, hashedPassword)){
+    return true
+  }
+  return false;
 };
 
 export const signJWTToken = (id: string) => {
@@ -33,7 +36,8 @@ export const isPasswordValid = (password: string) => {
 
 
 export const isEmailValid = (email: string) => {
-  return EmailValidator.validate(email);
+  if (EmailValidator.validate(email)) return true;
+  return false
 };
 
 export const passwordOrEmailIsEmpty = (email: string, password: string) => {
@@ -49,7 +53,7 @@ export const passwordOrEmailOrFullnameIsEmpty = (
   password: string,
   fullname: string
 ) => {
-  if ( !fullname.trim() || !email.trim() || !password.trim()) {
+  if (!fullname.trim() || !email.trim() || !password.trim()) {
     return true;
   } else {
     return false;

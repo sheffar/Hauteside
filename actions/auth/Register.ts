@@ -45,7 +45,7 @@ export const Register = async (formData: TFormData) => {
 
   const randomIndex = Math.floor(Math.random() * 10)
   const color = hexCodes[randomIndex]
-const passwordHashed= hashPassword(password)
+  const passwordHashed = hashPassword(password)
   const NewClient = await User.create({
     fullname: fullname.toLowerCase(),
     email: email.toLowerCase(),

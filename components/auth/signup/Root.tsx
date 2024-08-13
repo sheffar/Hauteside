@@ -32,7 +32,7 @@ export default function Root() {
       });
       return;
     }
-    if (isEmailValid(email)) {
+    if (!isEmailValid(email.trim())) {
       setErrors({
         email: "Please input a valid email address",
         password: "",
@@ -67,7 +67,7 @@ export default function Root() {
       variants={framer}
       initial="initial"
       animate="animate"
-      className="min-h-screen relative flex pt-10 md:pt-0 flex-col gap-4 items-center justify-center"
+      className="min-h-screen relative flex bgGrad pt-10 md:pt-0 flex-col gap-4 items-center justify-center"
     >
       <div className="text-center flex flex-col items-center">
         <Link
@@ -78,8 +78,7 @@ export default function Root() {
         </Link>
         <p className="font-semibold text-2xl sm:text-3xl mb-4">Hello & Welcome!</p>
       </div>
-      <div className="w-full sm:w-[360px] px-5 sm:px-7 sm:shadow-md h-fit sm:p-7 sm:border border-gray-300">
-        <div className="">
+      <div className="w-full sm:w-[360px] border-2 border-white rounded-3xl overflow-hidden px-5 sm:px-7 sm:shadow-xl shadow-black h-fit sm:p-7">        <div className="">
           <p className="mb-1 ml-2 font-semibold">Fullname</p>
           <div
             className={`h-14 ${

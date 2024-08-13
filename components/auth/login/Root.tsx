@@ -31,7 +31,8 @@ export default function Root() {
         password: !password.trim() ? "Please input your password" : "",
       });
     }
-    if (!isEmailValid(email)) {
+
+    if (!isEmailValid(email.trim())) {
       return setErrors({
         email: "Please input a valid email address",
         password: "",
