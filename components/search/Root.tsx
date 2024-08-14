@@ -23,6 +23,7 @@ export default function Root() {
   const getAllProducts = async () => {
     const data: TProduct[] = await SearchProducts() 
     setAllProducts(data)
+    console.log(allProducts)
   };
 
 

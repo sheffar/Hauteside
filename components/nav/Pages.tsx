@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Pages() {
-  const links = [["home", ''], ["about", "about"], ["contact", "contact"], ["shop", "shop"], ["new arrival", "newarrival"]];
+  const links = [["home", ''], ["about", "about"], ["contact", "contact"], ["shop", "shop"], ["new arrival", "shop"]];
 
   return (
     <div>

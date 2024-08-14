@@ -24,23 +24,6 @@ const ImageUploader = () => {
   const router = useRouter()
 
   const Pay = () => {
-    console.log(API_SECRET_KEY)
-    axios
-      .post(
-        "https://api.paystack.co/transaction/initialize",  vm
-        transactionDetails,
-        {
-          headers: {
-            Authorization: `Bearer ${API_SECRET_KEY}`,
-          },
-        }
-      )
-      .then((response) => {
-        router.push(`${response.data.data.authorization_url}`)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
